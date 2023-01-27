@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Intel | AI for future workforce</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.1/dist/jquery.slim.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+
+    <!-- <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script> -->
+
+    
+   <style>
+        html {
+        scroll-behavior: smooth;
+        }
+            *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            list-style: none;
+            text-decoration: none;
+            font-family: arial;
+        }
+        body{
+            background: #f3f5f9;
+        }
+        .wrapper{
+            position: relative;
+        }
+        .sidebar{
+            position: fixed;
+            width: 300px;
+            height: 100%;
+            background: #000000e0;
+            padding: 20px 0;
+        }
+        .text-muted{
+            color: #adb5bd!important;
+        }
+        ul{
+            padding-bottom: 20px; 
+        }
+        ul li a img{
+            background: #66BB6A;
+            top: 0;
+            border: none;
+            width: 20px;
+        }
+        .sidebar ul li{
+            padding: 15px;	
+        }
+        .sidebar ul li a{
+            color: #fff;
+            display: block;
+        }
+        .sidebar ul li a .fas{
+            width: 30px;
+            color: #bdb8d7!important;
+        }
+        i.fas.fa-home:hover,
+        i.fas.fa-file-invoice:hover,
+        i.fas.fa-video:hover,
+        i.fas.fa-id-badge:hover,
+        i.fas.fa-external-link-alt:hover,
+        i.fas.fa-code:hover,
+        i.far.fa-calendar-alt:hover,
+        i.far.fa-credit-card:hover{
+            color: #304FFE!important;
+        } 
+        .sidebar ul li a .far{
+            width: 30px;
+            color: #bdb8d7!important;
+        }
+        .sidebar ul li:hover{
+            background: #000;
+        }
+        .sidebar ul li a:hover{
+            text-decoration: none;
+        }
+
+        .sidebar ul li.active {
+            background: #000;
+        }
+
+
+        .main {
+            margin-left: 300px; /* Same as the width of the sidenav */
+            padding: 0px 10px;
+        }
+        .navbar-nav {
+            margin-left: auto;
+        }
+        .card{
+                padding: 1.5em .5em .5em;
+                border-radius: 2em;
+                text-align: center;
+                box-shadow: 0 5px 10px rgba(0,0,0,.2);
+                /* position: relative;
+                animation-name: example;
+                animation-duration: 4s;
+                animation-direction: reverse;  */
+            }
+            /* @keyframes example {
+                0%   {display: none;}
+                50%  {background-color:yellow; left:0px; top:200px;}
+                100%  {background-color:green; left:0px; top:0px;}
+            } */
+            /* #first_para {
+                position: fixed;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                right: 0;
+                overflow: auto;
+            } */
+
+            .card_flip_1,.card_flip_2,.card_flip_3 {
+                background-color: transparent;
+                width: 300px;
+                height: 300px;
+                perspective: 1000px;
+            }
+
+            .card_inner_1,.card_inner_2,.card_inner_3 {
+                position: relative;
+                width: 100%;
+                height: 100%;
+                text-align: center;
+                transition: transform 0.6s;
+                transform-style: preserve-3d;
+                box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+            }
+
+            .card_flip_1:hover .card_inner_1 {
+                transform: rotateY(180deg);
+            }
+            .card_flip_2:hover .card_inner_2 {
+                transform: rotateY(180deg);
+            }
+            .card_flip_3:hover .card_inner_3 {
+                transform: rotateY(180deg);
+            }
+
+            .card_front_1, .card_back_1,.card_front_2, .card_back_2,.card_front_3, .card_back_3 {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                -webkit-backface-visibility: hidden;
+                backface-visibility: hidden;
+            }
+
+
+            .card_back_1,.card_back_2,.card_back_3 {
+                transform: rotateY(180deg);
+            }
+   </style>
+   <script>
+    // $('#intro_card').addClass('animated bounceOutLeft');
+    // AOS.init();
+        var wow = new WOW(
+            {
+                boxClass:     'wow',      // animated element css class (default is wow)
+                animateClass: 'animated', // animation css class (default is animated)
+                offset:       0,          // distance to the element when triggering the animation (default is 0)
+                mobile:       true,       // trigger animations on mobile devices (default is true)
+                live:         true,       // act on asynchronously loaded content (default is true)
+                callback:     function(box) {
+                // the callback is fired every time an animation is started
+                // the argument that is passed in is the DOM node being animated
+                },
+                scrollContainer: null,    // optional scroll container selector, otherwise use window,
+                resetAnimation: true,     // reset animation on end (default is true)
+            }
+        );
+        wow.init();
+
+        $(document).ready(function(){
+
+            var intro_progress_stat = 0;
+            var total_intro_event = 6;
+            var intro_progress_percentage = 0;
+
+            $('#first_para_footer').click(function(e) {  
+                $('#second_para').show();
+                event.stopPropagation();
+                intro_progress_stat++;
+                intro_progress_percentage = Math.round(parseFloat(intro_progress_stat/total_intro_event)*100);
+                document.getElementById("intro_progress_count").innerHTML = intro_progress_percentage+"%"; 
+            });
+
+            $("#intro_tab:first-child").addClass("active");
+                $(".active").mouseover(function() {
+                $(this).removeClass("active");
+            });
+
+            $('#second_para_footer').click(function(e) {  
+                $('#third_para').show();
+                event.stopPropagation();
+                intro_progress_stat++;
+                intro_progress_percentage = Math.round(parseFloat(intro_progress_stat/total_intro_event)*100);
+                document.getElementById("intro_progress_count").innerHTML = intro_progress_percentage+"%"; 
+            });
+            document.getElementById("card_flip_1").onmouseover = function() {
+                intro_progress_stat++;
+                intro_progress_percentage = Math.round(parseFloat(intro_progress_stat/total_intro_event)*100);
+                document.getElementById("intro_progress_count").innerHTML = intro_progress_percentage+"%"; 
+            };
+            document.getElementById("card_flip_2").onmouseover = function() {
+                intro_progress_stat++;
+                intro_progress_percentage = Math.round(parseFloat(intro_progress_stat/total_intro_event)*100);
+                document.getElementById("intro_progress_count").innerHTML = intro_progress_percentage+"%"; 
+            };
+            document.getElementById("card_flip_3").onmouseover = function() {
+                intro_progress_stat++;
+                intro_progress_percentage = Math.round(parseFloat(intro_progress_stat/total_intro_event)*100);
+                document.getElementById("intro_progress_count").innerHTML = intro_progress_percentage+"%"; 
+            };
+        });
+        
+   </script>
+  </head>
+  <body>
+    <div class="wrapper d-flex">
+        <div class="sidebar">
+            <h2 class="fas" style="color: white;margin-left: 5px;">Intel</h2><br>
+            <h3 class="fas" style="color: white;margin-left: 5px;">Self paced course</h3><br><hr style="border: 1px solid white;;">
+            <small class="text-muted pl-3"></small>
+            <ul>
+                <li id="intro_tab">
+                    <a href="#"><i class="fas fa-home"></i>Introduction <span id="intro_progress_count" class="badge badge-success">0%</span></a>
+                </li>
+            </ul>
+            <small class="text-muted pl-3">Module 1</small>
+            <ul>
+                <li><a href="#"><i class="fas fa-home"></i>Sub Module 1-1</a></li>
+                <li><a href="#"><i class="far fa-credit-card"></i>Sub Module 1-2 <img src="https://img.icons8.com/material-outlined/24/000000/new.png"/></a></li>
+                <li><a href="#"><i class="fas fa-file-invoice"></i>Sub Module 1-3 <img src="https://img.icons8.com/material-outlined/24/000000/2.png"/></a></li>
+            </ul>
+            <small class="text-muted px-3">Module 2</small>
+            <ul>
+                <li><a href="#"><i class="far fa-calendar-alt"></i>Sub Module 2-1</a></li>
+                <li><a href="#"><i class="fas fa-video"></i>Sub Module 2-2</a></li>
+                <li><a href="#"><i class="fas fa-id-badge"></i>Sub Module 2-3</a></li>
+            </ul>
+            <small class="text-muted px-3">Module 3</small>
+            <ul>
+                <li><a href="#"><i class="fas fa-external-link-alt"></i>Sub Module 3-1</a></li>
+                <li><a href="#"><i class="fas fa-code"></i>Sub Module 3-2a</a></li>
+            </ul>
+        </div>
+        <!-- <div class="card">
+            <div class="card-body">
+              <h4 class="card-title">Card title</h4>
+              <p class="card-text">Some example text. Some example text.</p>
+              <a href="#" class="card-link">Card link</a>
+              <a href="#" class="card-link">Another link</a>
+            </div>
+          </div> -->
+    </div>
+
+    <div class="main">
+        <nav class="navbar navbar-expand-sm bg-light">
+            <!-- Brand/logo -->
+            <a class="navbar-brand" href="#" style="color: #1d0ba5;"><h3>Intel</h3></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                      <a class="nav-link" href="#" style="margin:5px;color: #1d0ba5;"> Home </a>
+                    </li>
+                    <li class="nav-item">
+                      <button type="button" class="btn btn-outline-primary" style="margin:5px;color: #1d0ba5"> Login </button>
+                    </li>
+                    <li class="nav-item">
+                      <button type="button" class="btn btn-primary" style="margin:5px;background-color: #1d0ba5;color: white;"> Registration </button>
+                    </li>
+                  </ul>
+            </div>
+            
+          </nav>
+
+          <div class="container">
+            <div id="first_para">
+                <div class="row" style="margin-top: 20px;">
+                    <div class="col-sm-3"></div>
+                    <div class="col-sm-6" style="display: flex;justify-content: center;align-items: center;">
+                        <h3 class="animate__animated animate__bounce" style="flex-shrink: 0;"><b>Introduction</b></h3>
+                        
+                    </div>
+                    <div class="col-sm-3"></div>
+                </div>
+                <div class="row" style="margin-top: 50px;">
+                    <div class="col-sm-3"></div>
+                    <div class="col-sm-6">
+                        <div id="intro_card" class="card" style="background-color: #1d0ba5;color:white;margin:auto;">
+                            <div class="card-body">
+                              <!-- <h4 class="card-title">Card title</h4> -->
+                              <p class="card-text animate__animated animate__zoomIn" style="text-align: left;">This is a self paced course in which the learner will be introduced to AI, and different technologies that work with AI. The course is broken down into 3 modules.</p>
+                            </div>
+                          </div>
+    
+                    </div>
+                    <div class="col-sm-3"></div>
+                    
+                </div>
+                <div class="row">
+                    <div class="col-sm-3"></div>
+                    <div class="col-sm-6" style="display: flex;justify-content: center;align-items: center;">
+                        <div class="fa-3x">
+                            <a id="first_para_footer" href="#second_para_footer"><i class="fa fa-caret-down fa-5x fa-beat" style="flex-shrink: 0;color: grey;"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-sm-3"></div>
+                </div>
+            </div>
+            <div id="second_para" style="display:none;">
+                <div class="row">
+                    <div class="col-sm-3"></div>
+                    <div class="col-sm-6">
+                        <div id="intro_card" class="card" style="background-color: #1d0ba5;color:white;margin:auto;">
+                            <div class="card-body animate__animated animate__backInLeft" style="--animate-duration:3s;">
+                              <!-- <h4 class="card-title">Card title</h4> -->
+                              <p style="text-align: left;">By the end of this course, learners will be able to:</p><br>
+                                <p style="text-align: left;">&#x2022; Identify AI Applications</p>
+                                <p style="text-align: left;">&#x2022; Identify present and future AI Applications</p>
+                                <p style="text-align: left;">&#x2022; Understand the process of building AI Applications</p>
+                            </div>
+                          </div>
+    
+                    </div>
+                    <div class="col-sm-3"></div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-3"></div>
+                    <div class="col-sm-6" style="display: flex;justify-content: center;align-items: center;">
+                        <div class="fa-3x">
+                            <a id="second_para_footer" href="#third_para"><i class="fa fa-caret-down fa-5x fa-beat" style="flex-shrink: 0;color: grey;"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-sm-3"></div>
+                </div>
+            </div>
+
+            <div id="third_para" style="display:none;">
+                <div class="row">
+                    <div class="col-sm-4">
+
+                        <div class="card_flip_1">
+                            <div class="card_inner_1">
+                                <div class="card_front_1">
+                                    <div class="card bg" style="background-color: #1d0ba5;">
+                                        <div class="card-body text-center" style="height: 300px;display: flex;align-items: center;justify-content: center;text-align: center;">
+                                          <p class="card-text animate__animated animate__fadeInDownBig" style="--animate-duration:2s;"><b><span style="color:white;">Introduction to AI</span></b></p>
+                                        </div>
+                                      </div>
+                                </div>
+                                <div class="card_back_1">
+                                    <div class="card bg" style="background-color: #4b37df;">
+                                        <div class="card-body text-center" style="height: 300px;display: flex;align-items: center;justify-content: center;text-align: center;">
+                                          <p class="card-text animate__animated animate__fadeInDownBig" style="--animate-duration:2s;"><b><span style="color:white;">This module serves as an Introduction to what AI is and what are the emerging technologies revolving AI</span></b></p>
+                                        </div>
+                                      </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-sm-4">
+
+                        <div class="card_flip_2">
+                            <div class="card_inner_2">
+                                <div class="card_front_2">
+                                    <div class="card bg" style="background-color: #1d0ba5;">
+                                        <div class="card-body text-center" style="height: 300px;display: flex;align-items: center;justify-content: center;text-align: center;">
+                                          <p class="card-text animate__animated animate__fadeInDownBig" style="--animate-duration:3s;"><b><span class="intro_module_names" style="color:white;">Understanding AI</span></b></p>
+                                        </div>
+                                      </div> 
+                                </div>
+                                <div class="card_back_2">
+                                    <div class="card bg" style="background-color: #4b37df;">
+                                        <div class="card-body text-center" style="height: 300px;display: flex;align-items: center;justify-content: center;text-align: center;">
+                                          <p class="card-text animate__animated animate__fadeInDownBig" style="--animate-duration:3s;"><b><span class="intro_module_names" style="color:white;">Understand what is inside Artifitial Intelligence and learn about AI tools - Teachable Machine/ Intel Dev cloud/ Intel Open VINO. Examine and discuss the impacts of AI in present and in future.</span></b></p>
+                                        </div>
+                                      </div> 
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <!-- <div class="card-deck">
+                            <div class="card_flip_1">
+                                <div class="card_inner_1" style="transition: transform 0.6s;transform-style: preserve-3d;">
+                                    <div class="card_front_1">
+                                        <div class="card bg" style="background-color: #1d0ba5;">
+                                            <div class="card-body text-center" style="height: 300px;display: flex;align-items: center;justify-content: center;text-align: center;">
+                                              <p class="card-text animate__animated animate__fadeInDownBig" style="--animate-duration:2s;"><b><span style="color:white;">Introduction to AI</span></b></p>
+                                            </div>
+                                          </div>
+                                    </div>
+                                    <div class="card_back_1">
+                                        <div class="card bg" style="background-color: #1d0ba5;">
+                                            <div class="card-body text-center" style="height: 300px;display: flex;align-items: center;justify-content: center;text-align: center;">
+                                              <p class="card-text animate__animated animate__fadeInDownBig" style="--animate-duration:2s;"><b><span style="color:white;">Introduction to AI</span></b></p>
+                                            </div>
+                                          </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card_flip_2">
+                                <div class="card_inner_2" style="transition: transform 0.6s;transform-style: preserve-3d;">
+                                    <div class="card_front_2">
+                                        <div class="card bg" style="background-color: #1d0ba5;">
+                                            <div class="card-body text-center" style="height: 300px;display: flex;align-items: center;justify-content: center;text-align: center;">
+                                              <p class="card-text animate__animated animate__fadeInDownBig" style="--animate-duration:3s;"><b><span class="intro_module_names" style="color:white;">Understanding AI</span></b></p>
+                                            </div>
+                                          </div> 
+                                    </div>
+                                    <div class="card_back_2">
+                                        <div class="card bg" style="background-color: #1d0ba5;">
+                                            <div class="card-body text-center" style="height: 300px;display: flex;align-items: center;justify-content: center;text-align: center;">
+                                              <p class="card-text animate__animated animate__fadeInDownBig" style="--animate-duration:3s;"><b><span class="intro_module_names" style="color:white;">Understanding AI</span></b></p>
+                                            </div>
+                                          </div> 
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="card_flip_3">
+                                <div class="card_inner_3" style="transition: transform 0.6s;transform-style: preserve-3d;">
+                                    <div class="card_front_3">
+                                        <div class="card bg" style="background-color: #1d0ba5;">
+                                            <div class="card-body text-center" style="height: 300px;display: flex;align-items: center;justify-content: center;text-align: center;">
+                                              <p class="card-text animate__animated animate__fadeInDownBig" style="--animate-duration:4s;"><b><span class="intro_module_names" style="color:white;">Plan AI</span></b></p>
+                                            </div>
+                                          </div>
+                                    </div>
+                                    <div class="card_back_3">
+                                        <div class="card bg" style="background-color: #1d0ba5;">
+                                            <div class="card-body text-center" style="height: 300px;display: flex;align-items: center;justify-content: center;text-align: center;">
+                                              <p class="card-text animate__animated animate__fadeInDownBig" style="--animate-duration:4s;"><b><span class="intro_module_names" style="color:white;">Plan AI</span></b></p>
+                                            </div>
+                                          </div>
+                                    </div>
+                                </div>
+                            </div>
+                              
+                        </div> -->
+    
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="card_flip_3">
+                            <div class="card_inner_3">
+                                <div class="card_front_3">
+                                    <div class="card bg" style="background-color: #1d0ba5;">
+                                        <div class="card-body text-center" style="height: 300px;display: flex;align-items: center;justify-content: center;text-align: center;">
+                                          <p class="card-text animate__animated animate__fadeInDownBig" style="--animate-duration:4s;"><b><span class="intro_module_names" style="color:white;">Plan AI</span></b></p>
+                                        </div>
+                                      </div>
+                                </div>
+                                <div class="card_back_3">
+                                    <div class="card bg" style="background-color: #4b37df;">
+                                        <div class="card-body text-center" style="height: 300px;display: flex;align-items: center;justify-content: center;text-align: center;">
+                                          <p class="card-text animate__animated animate__fadeInDownBig" style="--animate-duration:4s;"><b><span class="intro_module_names" style="color:white;">Learn about the importance of AI Ethics and responsible AI development. Devise SMART plans using SMART goal methodology.</span></b></p>
+                                        </div>
+                                      </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-3"></div>
+                    <div class="col-sm-6" style="display: flex;justify-content: center;align-items: center;">
+                        <div class="fa-3x">
+                            <i id="third_para_footer" class="fa fa-caret-down fa-5x fa-beat" style="flex-shrink: 0;color: grey;"></i>
+                        </div>
+                    </div>
+                    <div class="col-sm-3"></div>
+                </div>
+            </div>
+            
+          </div>
+    </div>
+
+    
+
+  </body>
+</html>
