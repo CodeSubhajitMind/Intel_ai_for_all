@@ -43,6 +43,7 @@
         }
         body{
             background: #f3f5f9;
+            margin-bottom: 60px;
         }
         .wrapper{
             position: relative;
@@ -145,6 +146,7 @@
                 position: relative;
                 width: 100%;
                 height: 100%;
+                border-radius: 2em;
                 text-align: center;
                 transition: transform 0.6s;
                 transform-style: preserve-3d;
@@ -173,6 +175,15 @@
             .card_back_1,.card_back_2,.card_back_3 {
                 transform: rotateY(180deg);
             }
+
+            .footer {
+                position: fixed;
+                width: auto;
+                right: 0;
+                bottom: 0;
+                height: 60px;
+                padding: 2px;
+            }
    </style>
    <script>
     // $('#intro_card').addClass('animated bounceOutLeft');
@@ -200,6 +211,7 @@
             var total_intro_event = 6;
             var intro_progress_percentage = 0;
 
+
             $('#first_para_footer').click(function(e) {  
                 $('#second_para').show();
                 event.stopPropagation();
@@ -209,9 +221,9 @@
             });
 
             $("#intro_tab:first-child").addClass("active");
-                $(".active").mouseover(function() {
-                $(this).removeClass("active");
-            });
+            // $(".active").mouseover(function() {
+            //     $(this).removeClass("active");
+            // });
 
             $('#second_para_footer').click(function(e) {  
                 $('#third_para').show();
@@ -220,21 +232,68 @@
                 intro_progress_percentage = Math.round(parseFloat(intro_progress_stat/total_intro_event)*100);
                 document.getElementById("intro_progress_count").innerHTML = intro_progress_percentage+"%"; 
             });
-            document.getElementById("card_flip_1").onmouseover = function() {
-                intro_progress_stat++;
-                intro_progress_percentage = Math.round(parseFloat(intro_progress_stat/total_intro_event)*100);
-                document.getElementById("intro_progress_count").innerHTML = intro_progress_percentage+"%"; 
-            };
-            document.getElementById("card_flip_2").onmouseover = function() {
-                intro_progress_stat++;
-                intro_progress_percentage = Math.round(parseFloat(intro_progress_stat/total_intro_event)*100);
-                document.getElementById("intro_progress_count").innerHTML = intro_progress_percentage+"%"; 
-            };
-            document.getElementById("card_flip_3").onmouseover = function() {
-                intro_progress_stat++;
-                intro_progress_percentage = Math.round(parseFloat(intro_progress_stat/total_intro_event)*100);
-                document.getElementById("intro_progress_count").innerHTML = intro_progress_percentage+"%"; 
-            };
+            var c_flip1_count = 1;
+            var c_flip2_count = 1;
+            var c_flip3_count = 1;
+            var intro_next_stat = true;
+            document.getElementById("c_flip1").addEventListener("mouseover",function(){
+                if(c_flip1_count==1){
+                    intro_progress_stat++;
+                    intro_progress_percentage = Math.round(parseFloat(intro_progress_stat/total_intro_event)*100);
+                    document.getElementById("intro_progress_count").innerHTML = intro_progress_percentage+"%";
+                    c_flip1_count++;
+                    if(intro_progress_stat==5){
+                        document.getElementById("next_page").disabled = false;
+                    }
+                }
+            });
+            document.getElementById("c_flip2").addEventListener("mouseover",function(){
+                if(c_flip2_count==1){
+                    intro_progress_stat++;
+                    intro_progress_percentage = Math.round(parseFloat(intro_progress_stat/total_intro_event)*100);
+                    document.getElementById("intro_progress_count").innerHTML = intro_progress_percentage+"%";
+                    c_flip2_count++;
+                    if(intro_progress_stat==5){
+                        document.getElementById("next_page").disabled = false;
+                    }
+                }
+            });
+            document.getElementById("c_flip3").addEventListener("mouseover",function(){
+                if(c_flip3_count==1){
+                    intro_progress_stat++;
+                    intro_progress_percentage = Math.round(parseFloat(intro_progress_stat/total_intro_event)*100);
+                    document.getElementById("intro_progress_count").innerHTML = intro_progress_percentage+"%";
+                    c_flip3_count++;
+                    if(intro_progress_stat==5){
+                        document.getElementById("next_page").disabled = false;
+                    }
+                }
+            });
+            $('#next_page').click(function(e) {  
+                if(intro_next_stat){
+                    intro_progress_stat++;
+                    intro_progress_percentage = Math.round(parseFloat(intro_progress_stat/total_intro_event)*100);
+                    document.getElementById("intro_progress_count").innerHTML = intro_progress_percentage+"%"; 
+                    
+                    $("#intro_tab:first-child").removeClass("active");
+                    $("#sub_module_1:first-child").addClass("active");
+                    intro_next_stat = false;
+                    // $(".active").mouseover(function() {
+                    //     $(this).removeClass("active");
+                    // });
+                    document.getElementById("next_page").disabled = true;
+                    $('#intro').hide();
+                    $('#module_1_intro').show();
+                }
+                
+            });
+            $('#fourth_para_footer').click(function(e) {  
+                $('#module_1_first_para').show();
+                event.stopPropagation();
+                // intro_progress_stat++;
+                // intro_progress_percentage = Math.round(parseFloat(intro_progress_stat/total_intro_event)*100);
+                // document.getElementById("intro_progress_count").innerHTML = intro_progress_percentage+"%"; 
+            });
         });
         
    </script>
@@ -252,7 +311,7 @@
             </ul>
             <small class="text-muted pl-3">Module 1</small>
             <ul>
-                <li><a href="#"><i class="fas fa-home"></i>Sub Module 1-1</a></li>
+                <li id="sub_module_1"><a href="#"><i class="fas fa-home"></i>Module 1 Intro <span id="intro_mod_1_intro_count" class="badge badge-success">0%</span></a></li>
                 <li><a href="#"><i class="far fa-credit-card"></i>Sub Module 1-2 <img src="https://img.icons8.com/material-outlined/24/000000/new.png"/></a></li>
                 <li><a href="#"><i class="fas fa-file-invoice"></i>Sub Module 1-3 <img src="https://img.icons8.com/material-outlined/24/000000/2.png"/></a></li>
             </ul>
@@ -300,7 +359,7 @@
             
           </nav>
 
-          <div class="container">
+          <div id="intro" class="container">
             <div id="first_para">
                 <div class="row" style="margin-top: 20px;">
                     <div class="col-sm-3"></div>
@@ -318,7 +377,7 @@
                               <!-- <h4 class="card-title">Card title</h4> -->
                               <p class="card-text animate__animated animate__zoomIn" style="text-align: left;">This is a self paced course in which the learner will be introduced to AI, and different technologies that work with AI. The course is broken down into 3 modules.</p>
                             </div>
-                          </div>
+                        </div>
     
                     </div>
                     <div class="col-sm-3"></div>
@@ -328,7 +387,7 @@
                     <div class="col-sm-3"></div>
                     <div class="col-sm-6" style="display: flex;justify-content: center;align-items: center;">
                         <div class="fa-3x">
-                            <a id="first_para_footer" href="#second_para_footer"><i class="fa fa-caret-down fa-5x fa-beat" style="flex-shrink: 0;color: grey;"></i></a>
+                            <a id="first_para_footer" href="#second_para_footer"><i class="fa fa-caret-down fa-5x fa-beat animate__animated animate__pulse"  style="--animate-duration:infinite;flex-shrink: 0;color: grey;"></i></a>
                         </div>
                     </div>
                     <div class="col-sm-3"></div>
@@ -366,7 +425,7 @@
                 <div class="row">
                     <div class="col-sm-4">
 
-                        <div class="card_flip_1">
+                        <div class="card_flip_1" id="c_flip1">
                             <div class="card_inner_1">
                                 <div class="card_front_1">
                                     <div class="card bg" style="background-color: #1d0ba5;">
@@ -378,7 +437,7 @@
                                 <div class="card_back_1">
                                     <div class="card bg" style="background-color: #4b37df;">
                                         <div class="card-body text-center" style="height: 300px;display: flex;align-items: center;justify-content: center;text-align: center;">
-                                          <p class="card-text animate__animated animate__fadeInDownBig" style="--animate-duration:2s;"><b><span style="color:white;">This module serves as an Introduction to what AI is and what are the emerging technologies revolving AI</span></b></p>
+                                          <p class="card-text animate__animated animate__zoomIn" style="--animate-duration:2s;"><b><span style="color:white;">This module serves as an Introduction to what AI is and what are the emerging technologies revolving AI</span></b></p>
                                         </div>
                                       </div>
                                 </div>
@@ -388,7 +447,7 @@
                     </div>
                     <div class="col-sm-4">
 
-                        <div class="card_flip_2">
+                        <div class="card_flip_2" id="c_flip2">
                             <div class="card_inner_2">
                                 <div class="card_front_2">
                                     <div class="card bg" style="background-color: #1d0ba5;">
@@ -400,7 +459,7 @@
                                 <div class="card_back_2">
                                     <div class="card bg" style="background-color: #4b37df;">
                                         <div class="card-body text-center" style="height: 300px;display: flex;align-items: center;justify-content: center;text-align: center;">
-                                          <p class="card-text animate__animated animate__fadeInDownBig" style="--animate-duration:3s;"><b><span class="intro_module_names" style="color:white;">Understand what is inside Artifitial Intelligence and learn about AI tools - Teachable Machine/ Intel Dev cloud/ Intel Open VINO. Examine and discuss the impacts of AI in present and in future.</span></b></p>
+                                          <p class="card-text animate__animated animate__zoomIn" style="--animate-duration:2s;"><b><span class="intro_module_names" style="color:white;">Understand what is inside Artifitial Intelligence and learn about AI tools - Teachable Machine/ Intel Dev cloud/ Intel Open VINO. Examine and discuss the impacts of AI in present and in future.</span></b></p>
                                         </div>
                                       </div> 
                                 </div>
@@ -470,7 +529,7 @@
     
                     </div>
                     <div class="col-sm-4">
-                        <div class="card_flip_3">
+                        <div class="card_flip_3" id="c_flip3">
                             <div class="card_inner_3">
                                 <div class="card_front_3">
                                     <div class="card bg" style="background-color: #1d0ba5;">
@@ -482,7 +541,7 @@
                                 <div class="card_back_3">
                                     <div class="card bg" style="background-color: #4b37df;">
                                         <div class="card-body text-center" style="height: 300px;display: flex;align-items: center;justify-content: center;text-align: center;">
-                                          <p class="card-text animate__animated animate__fadeInDownBig" style="--animate-duration:4s;"><b><span class="intro_module_names" style="color:white;">Learn about the importance of AI Ethics and responsible AI development. Devise SMART plans using SMART goal methodology.</span></b></p>
+                                          <p class="card-text animate__animated animate__zoomIn" style="--animate-duration:2s;"><b><span class="intro_module_names" style="color:white;">Learn about the importance of AI Ethics and responsible AI development. Devise SMART plans using SMART goal methodology.</span></b></p>
                                         </div>
                                       </div>
                                 </div>
@@ -490,18 +549,123 @@
                         </div>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row" style="height:50px;">
                     <div class="col-sm-3"></div>
                     <div class="col-sm-6" style="display: flex;justify-content: center;align-items: center;">
                         <div class="fa-3x">
-                            <i id="third_para_footer" class="fa fa-caret-down fa-5x fa-beat" style="flex-shrink: 0;color: grey;"></i>
+                            
                         </div>
                     </div>
                     <div class="col-sm-3"></div>
                 </div>
             </div>
+
+            
             
           </div>
+
+          <div id="module_1_intro" class="container" style="display:none;">
+            <div class="row" style="margin-top: 50px;">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-8">
+                    <div class="card animate__animated animate__slideInDown" style="--animate-duration:3s;background-color: #1d0ba5;color:white;margin:auto;">
+                        <div class="card-body" style="display: flex;justify-content: center;align-items: center;">
+                          <!-- <h4 class="card-title">Card title</h4> -->
+                          <p class="card-text" style="text-align: left;flex-shrink: 0;">Module 1</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-2"></div>
+            </div>
+            <div class="row" style="margin-top: 50px;">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-8">
+                    <div class="card animate__animated animate__slideInUp" style="--animate-duration:5s;background-color: #1d0ba5;color:white;margin:auto;">
+                        <div class="card-body" style="display: flex;justify-content: center;align-items: center;">
+                          <!-- <h4 class="card-title">Card title</h4> -->
+                          <p class="card-text" style="text-align: left;flex-shrink: 0;">Introduction to AI</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-2"></div>
+            </div>
+            <div class="row">
+                <div class="col-sm-3"></div>
+                <div class="col-sm-6" style="display: flex;justify-content: center;align-items: center;">
+                    <div class="fa-3x">
+                        <a id="fourth_para_footer" href="#module_1_first_para"><i class="fa fa-caret-down fa-5x fa-beat" style="flex-shrink: 0;color: grey;"></i></a>
+                    </div>
+                </div>
+                <div class="col-sm-3"></div>
+            </div>
+        </div>
+        <div id="module_1_first_para" style="display:none;">
+            <h3>What is Artificial Intelligence?</h3>
+            <div class="row">
+                <div class="col-sm-3">
+                    <div id="intro_card" class="card animate__animated animate__slideInDown" style="--animate-duration:2s;background-color: #1d0ba5;color:white;margin:auto;">
+                        <div class="card-body">
+                          <!-- <h4 class="card-title">Card title</h4> -->
+                          <p class="card-text" style="text-align: left;">Intelligence</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-9">
+                    <div class="row">
+                        <div class="col-sm-2"></div>
+                        <div class="col-sm-8">
+                            <div id="intro_card" class="card animate__animated animate__slideInUp animate__delay-3s" style="background-color: #1d0ba5;color:white;margin:auto;">
+                                <div class="card-body">
+                                  <!-- <h4 class="card-title">Card title</h4> -->
+                                  <p class="card-text" style="text-align: left;">Intelligence is the mental ability to learn new things, solve problems and take decisions</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-2"></div>
+                    </div>
+                </div>
+            </div>
+            <h3 style="height: 50px;">Can a machine do these kind of things?</h3>
+            <div class="row">
+                <div class="col-sm-3">
+                    <div id="intro_card" class="card animate__animated animate__slideInDown" style="--animate-duration:2s;background-color: #1d0ba5;color:white;margin:auto;">
+                        <div class="card-body">
+                          <!-- <h4 class="card-title">Card title</h4> -->
+                          <p class="card-text" style="text-align: left;">Artifitial Intelligence</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-9">
+                    <div class="row">
+                        <div class="col-sm-2"></div>
+                        <div class="col-sm-8">
+                            <div id="intro_card" class="card animate__animated animate__slideInUp animate__delay-3s" style="background-color: #1d0ba5;color:white;margin:auto;">
+                                <div class="card-body">
+                                  <!-- <h4 class="card-title">Card title</h4> -->
+                                  <p class="card-text" style="text-align: left;">Artifitial Intelligence is a machines ability to learn new things, identify patterns, solve problems, make predictions and take decisions</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-2"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+          <footer class="footer bg-light">
+            <div class="container py-1">
+                <nav class="navbar navbar-expand-sm bg-light">
+                    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                              <button type="button" id="next_page" class="btn btn-primary" style="background-color: #1d0ba5;color: white;" disabled> Next >> </button>
+                            </li>
+                          </ul>
+                    </div>
+                    
+                  </nav>
+            </div>
+          </footer>
     </div>
 
     
