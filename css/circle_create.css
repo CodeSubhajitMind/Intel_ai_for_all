@@ -1,0 +1,46 @@
+#outer-circle {
+    background: #678235;
+    border-radius: 50%;
+    height: 500px;
+    width: 500px;
+    position: relative;
+    /* 
+     Child elements with absolute positioning will be 
+     positioned relative to this div 
+    */
+  }
+  #inner-circle {
+    position: absolute;
+    background: #8BAE46;
+    border-radius: 50%;
+    height: 400px;
+    width: 400px;
+    /*
+     Put top edge and left edge in the center
+    */
+    top: 40%;
+    left: 40%;
+    margin: -100px 0px 0px -150px;
+    /* 
+     Offset the position correctly with
+     minus half of the width and minus half of the height 
+    */
+  }
+  
+  #super_inner_circle{
+    position: absolute;
+    background: #CBDDAA;
+    border-radius: 50%;
+    height: 300px;
+    width: 300px;
+    /*
+     Put top edge and left edge in the center
+    */
+    top: 50%;
+    left: 50%;
+    margin: -100px 0px 0px -150px;
+    /* 
+     Offset the position correctly with
+     minus half of the width and minus half of the height 
+    */
+  }

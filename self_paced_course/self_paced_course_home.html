@@ -31,9 +31,9 @@
     
    <style>
         html {
-        scroll-behavior: smooth;
+            scroll-behavior: smooth;
         }
-            *{
+        *{
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -184,6 +184,65 @@
                 height: 60px;
                 padding: 2px;
             }
+
+            @media(max-width:768px){
+                #sidebar{
+                    margin-left: -250px;
+                }
+                #sidebar.active{
+                    margin-left: 0;
+                }
+                #sidebarCollapse span{
+                    display: none;
+                }
+            }
+
+            #outer-circle {
+                background: #678235;
+                border-radius: 50%;
+                height: 500px;
+                width: 500px;
+                position: relative;
+                /* 
+                Child elements with absolute positioning will be 
+                positioned relative to this div 
+                */
+            }
+            #inner-circle {
+                position: absolute;
+                background: #8BAE46;
+                border-radius: 50%;
+                height: 400px;
+                width: 400px;
+                /*
+                Put top edge and left edge in the center
+                */
+                top: 40%;
+                left: 40%;
+                margin: -100px 0px 0px -150px;
+                /* 
+                Offset the position correctly with
+                minus half of the width and minus half of the height 
+                */
+            }
+            
+            #super_inner_circle{
+                position: absolute;
+                background: #CBDDAA;
+                border-radius: 50%;
+                height: 300px;
+                width: 300px;
+                /*
+                Put top edge and left edge in the center
+                */
+                top: 50%;
+                left: 50%;
+                margin: -100px 0px 0px -150px;
+                /* 
+                Offset the position correctly with
+                minus half of the width and minus half of the height 
+                */
+  }
    </style>
    <script>
     // $('#intro_card').addClass('animated bounceOutLeft');
@@ -294,6 +353,13 @@
                 // intro_progress_percentage = Math.round(parseFloat(intro_progress_stat/total_intro_event)*100);
                 // document.getElementById("intro_progress_count").innerHTML = intro_progress_percentage+"%"; 
             });
+            $('#fifth_para_footer').click(function(e) {  
+                $('#module_1_second_para').show();
+                event.stopPropagation();
+                // intro_progress_stat++;
+                // intro_progress_percentage = Math.round(parseFloat(intro_progress_stat/total_intro_event)*100);
+                // document.getElementById("intro_progress_count").innerHTML = intro_progress_percentage+"%"; 
+            });
         });
         
    </script>
@@ -317,14 +383,11 @@
             </ul>
             <small class="text-muted px-3">Module 2</small>
             <ul>
-                <li><a href="#"><i class="far fa-calendar-alt"></i>Sub Module 2-1</a></li>
-                <li><a href="#"><i class="fas fa-video"></i>Sub Module 2-2</a></li>
-                <li><a href="#"><i class="fas fa-id-badge"></i>Sub Module 2-3</a></li>
+                <li><a href="#"><i class="far fa-calendar-alt"></i>Module 2 Intro</a></li>
             </ul>
             <small class="text-muted px-3">Module 3</small>
             <ul>
-                <li><a href="#"><i class="fas fa-external-link-alt"></i>Sub Module 3-1</a></li>
-                <li><a href="#"><i class="fas fa-code"></i>Sub Module 3-2a</a></li>
+                <li><a href="#"><i class="fas fa-external-link-alt"></i>Module 3 Intro</a></li>
             </ul>
         </div>
         <!-- <div class="card">
@@ -341,20 +404,17 @@
         <nav class="navbar navbar-expand-sm bg-light">
             <!-- Brand/logo -->
             <a class="navbar-brand" href="#" style="color: #1d0ba5;"><h3>Intel</h3></a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-                <span class="navbar-toggler-icon"></span></button>
+            <button class="navbar-toggler" type="button" id="sidebarCollapse">
+                <span><i class="fa-solid fa-bars"></i></span></button>
             <div class="collapse navbar-collapse" id="collapsibleNavbar">
                 <ul class="navbar-nav">
                     <li class="nav-item active">
                       <a class="nav-link" href="#" style="margin:5px;color: #1d0ba5;"> Home </a>
                     </li>
                     <li class="nav-item">
-                      <button type="button" class="btn btn-outline-primary" style="margin:5px;color: #1d0ba5"> Login </button>
+                      <i class="fa-solid fa-circle-user"></i>
                     </li>
-                    <li class="nav-item">
-                      <button type="button" class="btn btn-primary" style="margin:5px;background-color: #1d0ba5;color: white;"> Registration </button>
-                    </li>
-                  </ul>
+                </ul>
             </div>
             
           </nav>
@@ -375,7 +435,7 @@
                         <div id="intro_card" class="card" style="background-color: #1d0ba5;color:white;margin:auto;">
                             <div class="card-body">
                               <!-- <h4 class="card-title">Card title</h4> -->
-                              <p class="card-text animate__animated animate__zoomIn" style="text-align: left;">This is a self paced course in which the learner will be introduced to AI, and different technologies that work with AI. The course is broken down into 3 modules.</p>
+                              <p class="card-text animate__animated animate__zoomIn" style="text-align: justify;text-justify: inter-word;">This is a self paced course in which the learner will be introduced to AI, and different technologies that work with AI. The course is broken down into 3 modules.</p>
                             </div>
                         </div>
     
@@ -398,12 +458,12 @@
                     <div class="col-sm-3"></div>
                     <div class="col-sm-6">
                         <div id="intro_card" class="card" style="background-color: #1d0ba5;color:white;margin:auto;">
-                            <div class="card-body animate__animated animate__backInLeft" style="--animate-duration:3s;">
+                            <div class="card-body animate__animated animate__zoomIn">
                               <!-- <h4 class="card-title">Card title</h4> -->
-                              <p style="text-align: left;">By the end of this course, learners will be able to:</p><br>
-                                <p style="text-align: left;">&#x2022; Identify AI Applications</p>
-                                <p style="text-align: left;">&#x2022; Identify present and future AI Applications</p>
-                                <p style="text-align: left;">&#x2022; Understand the process of building AI Applications</p>
+                              <p style="text-align: justify;text-justify: inter-word;">By the end of this course, learners will be able to:</p><br>
+                                <p style="text-align: justify;text-justify: inter-word;">&#x2022; Identify AI Applications</p>
+                                <p style="text-align: justify;text-justify: inter-word;">&#x2022; Identify present and future AI Applications</p>
+                                <p style="text-align: justify;text-justify: inter-word;">&#x2022; Understand the process of building AI Applications</p>
                             </div>
                           </div>
     
@@ -420,6 +480,8 @@
                     <div class="col-sm-3"></div>
                 </div>
             </div>
+
+            
 
             <div id="third_para" style="display:none;">
                 <div class="row">
@@ -598,59 +660,79 @@
                 </div>
                 <div class="col-sm-3"></div>
             </div>
-        </div>
-        <div id="module_1_first_para" style="display:none;">
-            <h3>What is Artificial Intelligence?</h3>
-            <div class="row">
-                <div class="col-sm-3">
-                    <div id="intro_card" class="card animate__animated animate__slideInDown" style="--animate-duration:2s;background-color: #1d0ba5;color:white;margin:auto;">
-                        <div class="card-body">
-                          <!-- <h4 class="card-title">Card title</h4> -->
-                          <p class="card-text" style="text-align: left;">Intelligence</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-9">
-                    <div class="row">
-                        <div class="col-sm-2"></div>
-                        <div class="col-sm-8">
-                            <div id="intro_card" class="card animate__animated animate__slideInUp animate__delay-3s" style="background-color: #1d0ba5;color:white;margin:auto;">
-                                <div class="card-body">
-                                  <!-- <h4 class="card-title">Card title</h4> -->
-                                  <p class="card-text" style="text-align: left;">Intelligence is the mental ability to learn new things, solve problems and take decisions</p>
-                                </div>
+            <div id="module_1_first_para" style="display:none;">
+                <h3>What is Artificial Intelligence?</h3>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <div id="intro_card" class="card animate__animated animate__slideInDown" style="--animate-duration:2s;background-color: #1d0ba5;color:white;margin:auto;">
+                            <div class="card-body">
+                              <!-- <h4 class="card-title">Card title</h4> -->
+                              <p class="card-text" style="text-align: left;">Intelligence</p>
                             </div>
                         </div>
-                        <div class="col-sm-2"></div>
                     </div>
-                </div>
-            </div>
-            <h3 style="height: 50px;">Can a machine do these kind of things?</h3>
-            <div class="row">
-                <div class="col-sm-3">
-                    <div id="intro_card" class="card animate__animated animate__slideInDown" style="--animate-duration:2s;background-color: #1d0ba5;color:white;margin:auto;">
-                        <div class="card-body">
-                          <!-- <h4 class="card-title">Card title</h4> -->
-                          <p class="card-text" style="text-align: left;">Artifitial Intelligence</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-9">
-                    <div class="row">
-                        <div class="col-sm-2"></div>
-                        <div class="col-sm-8">
-                            <div id="intro_card" class="card animate__animated animate__slideInUp animate__delay-3s" style="background-color: #1d0ba5;color:white;margin:auto;">
-                                <div class="card-body">
-                                  <!-- <h4 class="card-title">Card title</h4> -->
-                                  <p class="card-text" style="text-align: left;">Artifitial Intelligence is a machines ability to learn new things, identify patterns, solve problems, make predictions and take decisions</p>
+                    <div class="col-sm-9">
+                        <div class="row">
+                            <div class="col-sm-2"></div>
+                            <div class="col-sm-8">
+                                <div id="intro_card" class="card animate__animated animate__slideInUp animate__delay-3s" style="background-color: #1d0ba5;color:white;margin:auto;">
+                                    <div class="card-body">
+                                      <!-- <h4 class="card-title">Card title</h4> -->
+                                      <p class="card-text" style="text-align: left;">Intelligence is the mental ability to learn new things, solve problems and take decisions</p>
+                                    </div>
                                 </div>
                             </div>
+                            <div class="col-sm-2"></div>
                         </div>
-                        <div class="col-sm-2"></div>
                     </div>
                 </div>
+                <h3 style="height: 50px;">Can a machine do these kind of things?</h3>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <div id="intro_card" class="card animate__animated animate__slideInDown" style="--animate-duration:2s;background-color: #1d0ba5;color:white;margin:auto;">
+                            <div class="card-body">
+                              <!-- <h4 class="card-title">Card title</h4> -->
+                              <p class="card-text" style="text-align: left;">Artifitial Intelligence</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-9">
+                        <div class="row">
+                            <div class="col-sm-2"></div>
+                            <div class="col-sm-8">
+                                <div id="intro_card" class="card animate__animated animate__slideInUp animate__delay-3s" style="background-color: #1d0ba5;color:white;margin:auto;">
+                                    <div class="card-body">
+                                      <!-- <h4 class="card-title">Card title</h4> -->
+                                      <p class="card-text" style="text-align: left;">Artifitial Intelligence is a machines ability to learn new things, identify patterns, solve problems, make predictions and take decisions</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-2"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-3"></div>
+                    <div class="col-sm-6" style="display: flex;justify-content: center;align-items: center;">
+                        <div class="fa-3x">
+                            <a id="fifth_para_footer" href="#module_1_second_para"><i class="fa fa-caret-down fa-5x fa-beat" style="flex-shrink: 0;color: grey;"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-sm-3"></div>
+                </div>
+            </div>
+            <div id="module_1_second_para" style="display: none;">
+                <div id="outer-circle">
+                    <div id="inner-circle">
+                      <div id="super_inner_circle">
+                          
+                      </div>
+                    </div>
+                  </div>
+    
             </div>
         </div>
+        
 
           <footer class="footer bg-light">
             <div class="container py-1">
@@ -669,6 +751,5 @@
     </div>
 
     
-
   </body>
 </html>

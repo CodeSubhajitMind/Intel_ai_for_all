@@ -23,38 +23,131 @@
             margin-left: auto;
         }
         body {
-            font-family: Arial, Helvetica, sans-serif;
+            font-family: 'IntelOne Display';
+        }
+        #img_register{
+          width: 100%;
+          height: 100%;
+          /* background-image: url(images/home1.png); */
+          background-size: contain;
+          background-repeat: no-repeat;
+          background-position: center;
+          border-color: white;
+          border:none;
+          outline: none;
+          display: inline-block;
+        }
+        #logo{
+          width: 197px;
+          height: 56px;
+        }
+        .form-control,.custom-select,.custom-control-input{
+          box-sizing: border-box;
+          border: 1px solid #A4AADC;
+          border-radius: 8px;
+        }
+        .custom-control-label{
+          font-family: 'IntelOne Display';
+          font-style: normal;
+          font-weight: 400;
+          font-size: 12px;
+          line-height: 15px;
+          display: flex;
+          align-items: center;
+
+          color: #000000;
+        }
+        #footer_intel{
+          background: #E4E7FF;
+          padding-left: 73px;
+          padding-right: 73px;
+          padding-top: 55px;
+        }
+        #footer_desc{
+          font-family: 'IntelOne Display';
+          font-style: normal;
+          font-weight: 400;
+          font-size: 10px;
+          line-height: 13px;
+          display: flex;
+          align-items: center;
+          text-align: justify;
+          width: 325px;
+          color: #838383;
+          margin-top: 15px;
+        }
+        #footer_right_text_list{
+          font-family: 'IntelOne Display';
+          font-style: normal;
+          font-weight: 400;
+          font-size: 12px;
+          line-height: 15px;
+          display: flex;
+          align-items: center;
+          text-align: justify;
+
+          color: #000F8A;
+
+        }
+
+        #footer_bottom_desc{
+          font-family: 'IntelOne Display';
+          font-style: normal;
+          font-weight: 400;
+          font-size: 12px;
+          line-height: 15px;
+          display: flex;
+          align-items: center;
+          text-align: justify;
+          width: 325px;
+          color: #838383;
         }
     </style>
   </head>
   <body>
-        <nav class="navbar navbar-expand-sm bg-light">
-            <!-- Brand/logo -->
-            <a class="navbar-brand" href="#" style="color: #010863;"><h3>Intel</h3></a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-                <span class="navbar-toggler-icon"></span></button>
-            <div class="collapse navbar-collapse" id="collapsibleNavbar">
-                <ul class="navbar-nav">
-                    <li class="nav-item active">
-                      <a class="nav-link" href="#" style="margin:5px;color: #010863;"> Home </a>
-                    </li>
-                    <li class="nav-item">
-                      <button type="button" class="btn btn-outline-primary" style="margin:5px;color: #010863"> Login </button>
-                    </li>
-                    <li class="nav-item">
-                      <button type="button" class="btn btn-primary" style="margin:5px;background-color: #010863;color: white;"> Registration </button>
-                    </li>
-                  </ul>
-            </div>
+        <nav class="navbar navbar-expand-sm bg-light" style="width: 100%;
+        height: 87px;padding-left: 73px;padding-right: 73px;">
+                  <!-- Brand/logo -->
+              <a class="navbar-brand" href="#" style="color: #000864;">
+                <img id="logo" src="images/Digitalreadiness-logo.png">
+              </a>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                  <span class="navbar-toggler-icon"></span></button>
+              <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                  <ul class="navbar-nav">
+                      <li class="nav-item active">
+                        <a class="nav-link" href="#" style="margin:5px;color: #000864;"> Home </a>
+                      </li>
+                      <li class="nav-item">
+                        <button type="button" class="btn btn-outline-primary" style="margin:5px;color: #000864;border-radius: 60px;width: 134px;
+                        height: 36px;"> Login </button>
+                      </li>
+                      <li class="nav-item">
+                        <button type="button" class="btn btn-primary" style="margin:5px;background-color: #000864;color: white;border-radius: 60px;width: 134px;
+                        height: 36px;"> Registration </button>
+                      </li>
+                    </ul>
+              </div>
             
           </nav>
-          <div class="container-fluid" style="background-color:#010863;padding-top: 15px;padding-bottom: 15px;">
-            <h3 style="color:white;margin-top: 20px;margin-bottom: 10px;"><b>Registration</b></h3>
-            <p style="color:#b4bfd1;">Students Registration for Self paced course</p>
+          <div class="container-fluid" style="background-color:#000864;padding-top: 15px;padding-bottom: 15px;width: 100%;height: 140px;padding-left: 73px;padding-right: 73px;">
+            <h3 style="color:white;margin-top: 15px;margin-bottom: 7px;font-family: 'IntelOne Display';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 36px;
+            line-height: 46px;
+            display: flex;
+            align-items: center;"><b>Register</b></h3>
+            <p style="font-family: 'IntelOne Display';
+            font-style: normal;
+            font-weight: 300;
+            font-size: 18px;
+            line-height: 23px;
+            color: #A4AADC;">Students Registration for Self paced course</p>
           </div>
-          <div class="container-fluid">
-            <div class="row" style="margin-top:40px;">
-                <div class="col-sm-6">
+          <div class="container-fluid" style="width: 100%;padding-left: 73px;padding-right: 73px;">
+            <div class="row" style="height:600px;">
+                <div class="col-sm-5" style="margin-top:73px;">
                     <form>
                         <div class="form-row" style="margin-top: 10px;">
                           <div class="col">
@@ -386,19 +479,22 @@
                         <div class="form-row" style="margin-top:10px;">
                             <div class="col">
                                 <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="customCheck" name="example1">
-                                    <label class="custom-control-label" for="customCheck">I accept the <span style="color: #010863;">Terms & Condition</span> and <span style="color: #1d0ba5;">Privacy Policy</span></label>
+                                    <input type="checkbox" class="custom-control-input" id="customCheck" name="example1" style="border-radius: 4px;">
+                                    <label class="custom-control-label" for="customCheck">I accept the <span style="color: hsl(235, 78%, 44%);">Terms & Condition&nbsp; </span> and <span style="color: hsl(235, 78%, 44%);">&nbsp; Privacy Policy</span></label>
                                   </div>
                             </div>
                         </div>
                         <div class="form-row" style="margin-top:10px;">
                             <div class="col">
-                                <div class="g-recaptcha" data-sitekey="6Ldbdg0TAAAAAI7KAf72Q6uagbWzWecTeBWmrCpJ"></div>
+                                <!-- <div class="g-recaptcha" data-sitekey="6Ldbdg0TAAAAAI7KAf72Q6uagbWzWecTeBWmrCpJ"></div> -->
+                                <img src="images/captcha.png" style="width: 265px;
+                                        height: 67px;">
                             </div>
                         </div>
                         <div class="form-row" style="margin-top:10px;">
                             <div class="col">
-                                <button type="button" class="btn btn-outline-primary" id="register" style="margin:5px;background-color: #010863;color: white;"> Submit </button>
+                                <button type="button" class="btn btn-primary" id="register" style="margin:5px;background-color: #000864;color: white;border-radius: 60px;width: 190px;
+                                height: 51px;"> SignUp </button>
                             </div>
                             <div class="col">
                                 
@@ -406,12 +502,47 @@
                         </div>
                       </form>
                 </div>
-                <div class="col-sm-6">
-                    <img src="images/register_page.jpg" style="max-width: 100%;
-                    max-height: 100%;
-                    object-fit: cover;">
+                <div class="col-sm-7" style="width: 704px;height: 600px;">
+                    <img id="img_register" src="images/home1.png">
                 </div>
               </div>
+          </div>
+          <div class="container-fluid" id="footer_intel">
+              <div class="row">
+                <div class="col-sm-4">
+                  <img src="images/Digitalreadiness-logo.png" style="width: 197px;height: 56px;">
+                  <p id="footer_desc">
+
+                    Intel technologies may require enabled hardware, software or service activation. // No product or component can be absolutely secure. // Your costs and results may vary. // Performance varies by use, configuration and other factors. // See our complete legal Notices and Disclaimers. // Intel is committed to respecting human rights and avoiding complicity in human rights abuses. See Intel’s Global Human Rights Principles. Intel’s products and software are intended only to be used in applications that do not cause or contribute to a violation of an internationally recognised human right.
+
+                  </p>
+                </div>
+                <div class="col-sm-8">
+                    <div class="row" id="footer_right_text_list">
+                      <div class="col-sm-4" style="text-align: left;">
+                          <p>About Us</p>
+                          <p>For Industry partners</p>
+                          <p>For Institution</p>
+                          <p>For Students</p>
+                      </div>
+                      <div class="col-sm-4" style="text-align: left;">
+                        <p>FAQs</p>
+                        <p>Contact us</p>
+                        <p>Help and Support</p>
+
+                      </div>
+                      <div class="col-sm-4" style="text-align: left;">
+                        <p>Terms and Conditions</p>
+                        <p>Privacy Policies</p>
+                        <p>Site map</p>
+                        <p>Cookie Settings</p>
+
+                      </div>
+                    </div>
+                </div>
+              </div>
+              <hr style="border: 1px solid rgba(131, 131, 131, 0.45);height: 0px;margin-top: 15px;"> 
+              <p id="footer_bottom_desc">© 2023 Intel Simulated Internships. All rights reserved.</p>
           </div>
           
   </body>
