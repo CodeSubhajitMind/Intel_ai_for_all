@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@font-face {
+  font-family: "INTEL_REGULAR";
+  src: url("../fonts/intelone-display-regular.otf");
+}
+
+@font-face {
+  font-family: "INTEL_BOLD";
+  src: url("../fonts/intelone-display-bold.otf");
+}
+
+@font-face {
+  font-family: "INTEL_LIGHT";
+  src: url("../fonts/intelone-display-light.otf");
+}
+
+@font-face {
+  font-family: "INTEL_MEDIUM";
+  src: url("../fonts/intelone-display-medium.otf");
+}

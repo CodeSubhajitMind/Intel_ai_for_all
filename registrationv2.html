@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Tailwind CSS -->
+    <link href="/dist/output.css" rel="stylesheet" />
+
+    <!-- Flowbite -->
+    <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.css"
+    rel="stylesheet"
+    />
+
+    <title>Intel | AI for all</title>
+  </head>
+  <body class="font-intelregular">
+    <nav class="bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded">
+      <div
+        class="container flex flex-wrap items-center justify-between mx-auto"
+      >
+        <a href="https://flowbite.com/" class="flex items-center">
+          <img
+            src="/images/Digitalreadiness-logo.png"
+            class="h-6 mr-3 sm:h-9"
+            alt="Logo"
+          />
+        </a>
+        <button
+          data-collapse-toggle="navbar-default"
+          type="button"
+          class="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
+          aria-controls="navbar-default"
+          aria-expanded="false"
+        >
+          <span class="sr-only">Open main menu</span>
+          <svg
+            class="w-6 h-6"
+            aria-hidden="true"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+              clip-rule="evenodd"
+            ></path>
+          </svg>
+        </button>
+        <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+          <ul
+            class="flex flex-col items-center p-4 mt-4 border border-gray-200 rounded-lg bg-gray-100 md:flex-row md:space-x-8 md:mt-0 md:text-sm font-intellight md:border-0 md:bg-white"
+          >
+            <li>
+              <a
+                href="#"
+                class="block py-2 pl-3 pr-4 text-intelblue md:text-black hover:underline"
+                aria-current="page"
+                >Home</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="block py-2 pl-3 pr-4 text-intelblue md:w-36 md:text-center md:border md:rounded-full md:border-intelblue hover:bg-gray-200 md:hover:underline"
+                >Login</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="block py-2 pl-3 pr-4 text-intelblue md:font-intelregular md:bg-intelblue md:text-white md:w-36 md:text-center md:border md:rounded-full md:border-intelblue hover:underline"
+                >Register</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero -->
+    <div class="bg-intelblue text-white px-2 sm:px-4 py-2.5">
+      <div class="container mx-auto py-4">
+        <h1 class="text-4xl font-intelbold">Register</h1>
+        <p class="font-intellight text-intellight py-2">
+          Lorem Ipsum has been the industry's standard dummy text ever since the
+          1500s.
+        </p>
+      </div>
+    </div>
+
+    <!-- Main -->
+    <div class="px-2 sm:px-4 py-2.5">
+      <div class="container mx-auto py-4">
+        <div class="lg:grid lg:grid-cols-2">
+          <!-- Form -->
+          <div class="col">
+            <form action="" method="post">
+              <div class="grid grid-cols-2 gap-4">
+                <input
+                  class="border-2 border-intellightF rounded-lg focus:ring-1 focus:ring-intellightF placeholder:text-intellight"
+                  type="text"
+                  name="first_name"
+                  id="first_name"
+                  placeholder="First Name*"
+                />
+                <input
+                  class="border-2 border-intellightF rounded-lg focus:ring-1 focus:ring-intellightF placeholder:text-intellight"
+                  type="text"
+                  name="last_name"
+                  id="last_name"
+                  placeholder="Last Name*"
+                />
+                <input
+                  class="border-2 border-intellightF rounded-lg focus:ring-1 focus:ring-intellightF placeholder:text-intellight"
+                  type="text"
+                  onfocus="(this.type = 'date')"
+                  onblur="(this.type = 'text')"
+                  name="dob"
+                  id="dob"
+                  placeholder="Date of Birth*"
+                />
+
+                <!-- Sex Dropdown -->
+                <div>
+                  <script>
+                    function set_sex(val, name) {
+                      document.getElementById("sex_hidden").value = val;
+                      document
+                        .getElementById("sex_hidden")
+                        .removeAttribute("disabled");
+                      document.getElementById("sex_text").innerHTML = name;
+                      document.getElementById("sex_button").click();
+                    }
+                  </script>
+                  <input
+                    type="hidden"
+                    name="sex"
+                    value=""
+                    id="sex_hidden"
+                    disabled=""
+                  />
+                  <button
+                    id="sex_button"
+                    data-dropdown-toggle="dropdown-sex"
+                    class="w-full h-11 border-2 border-intellight rounded-lg focus:ring-1 focus:ring-intellight placeholder:text-intellight"
+                    type="button"
+                  >
+                    <div class="flex justify-between text-intellight px-4">
+                      <span id="sex_text"> Sex* </span>
+                      <svg
+                        class="w-4 h-4 mt-1"
+                        aria-hidden="true"
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                          clip-rule="evenodd"
+                        ></path>
+                      </svg>
+                    </div>
+                  </button>
+                  <div
+                    id="dropdown-sex"
+                    class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-72"
+                  >
+                    <ul
+                      class="py-2 text-sm text-intelblue"
+                      aria-labelledby="states-button"
+                    >
+                      <li>
+                        <button
+                          type="button"
+                          class="w-full px-4 py-2 text-sm hover:bg-intellight"
+                          onclick="set_sex('male', 'Male')"
+                        >
+                          <div class="items-center">Male</div>
+                        </button>
+                      </li>
+                      <li>
+                        <button
+                          type="button"
+                          class="w-full px-4 py-2 text-sm hover:bg-intellight"
+                          onclick="set_sex('female', 'Female')"
+                        >
+                          <div class="items-center">Female</div>
+                        </button>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+                <!-- Country Dropdown -->
+                <div>
+                  <script>
+                    function set_country(val, name) {
+                      document.getElementById("country_hidden").value = val;
+                      document
+                        .getElementById("country_hidden")
+                        .removeAttribute("disabled");
+                      document.getElementById("country_text").innerHTML = name;
+                      document.getElementById("country_button").click();
+                    }
+                  </script>
+                  <input
+                    type="hidden"
+                    name="country"
+                    value=""
+                    id="country_hidden"
+                    disabled=""
+                  />
+                  <button
+                    id="country_button"
+                    data-dropdown-toggle="dropdown-country"
+                    class="w-full h-11 border-2 border-intellight rounded-lg focus:ring-1 focus:ring-intellight placeholder:text-intellight"
+                    type="button"
+                  >
+                    <div class="flex justify-between text-intellight px-4">
+                      <span id="country_text"> Country* </span>
+                      <svg
+                        class="w-4 h-4 mt-1"
+                        aria-hidden="true"
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                          clip-rule="evenodd"
+                        ></path>
+                      </svg>
+                    </div>
+                  </button>
+                  <div
+                    id="dropdown-country"
+                    class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-72"
+                  >
+                    <ul
+                      class="py-2 text-sm text-intelblue"
+                      aria-labelledby="states-button"
+                    >
+                      <li>
+                        <button
+                          type="button"
+                          class="w-full px-4 py-2 text-sm hover:bg-intellight"
+                          onclick="set_country('india', 'India')"
+                        >
+                          <div class="items-center">India</div>
+                        </button>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+                <!-- State Dropdown -->
+                <div>
+                  <script>
+                    function set_state(val, name) {
+                      document.getElementById("state_hidden").value = val;
+                      document
+                        .getElementById("state_hidden")
+                        .removeAttribute("disabled");
+                      document.getElementById("state_text").innerHTML = name;
+                      document.getElementById("state_button").click();
+                    }
+                  </script>
+                  <input
+                    type="hidden"
+                    name="state"
+                    value=""
+                    id="state_hidden"
+                    disabled=""
+                  />
+                  <button
+                    id="state_button"
+                    data-dropdown-toggle="dropdown-state"
+                    class="w-full h-11 border-2 border-intellight rounded-lg focus:ring-1 focus:ring-intellight placeholder:text-intellight"
+                    type="button"
+                  >
+                    <div class="flex justify-between text-intellight px-4">
+                      <span id="state_text"> State* </span>
+                      <svg
+                        class="w-4 h-4 mt-1"
+                        aria-hidden="true"
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                          clip-rule="evenodd"
+                        ></path>
+                      </svg>
+                    </div>
+                  </button>
+                  <div
+                    id="dropdown-state"
+                    class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-72"
+                  >
+                    <ul
+                      class="py-2 text-sm text-intelblue"
+                      aria-labelledby="states-button"
+                    >
+                      <li>
+                        <button
+                          type="button"
+                          class="w-full px-4 py-2 text-sm hover:bg-intellight"
+                          onclick="set_state('assam', 'Assam')"
+                        >
+                          <div class="items-center">Assam</div>
+                        </button>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+                <!-- Institution Dropdown -->
+                <div class="col-span-2">
+                  <script>
+                    function set_institution(val, name) {
+                      document.getElementById("institution_hidden").value = val;
+                      document
+                        .getElementById("institution_hidden")
+                        .removeAttribute("disabled");
+                      document.getElementById("institution_text").innerHTML =
+                        name;
+                      document.getElementById("institution_button").click();
+                    }
+                  </script>
+                  <input
+                    type="hidden"
+                    name="institution"
+                    value=""
+                    id="institution_hidden"
+                    disabled=""
+                  />
+                  <button
+                    id="institution_button"
+                    data-dropdown-toggle="dropdown-institution"
+                    class="w-full h-11 border-2 border-intellight rounded-lg focus:ring-1 focus:ring-intellight placeholder:text-intellight"
+                    type="button"
+                  >
+                    <div class="flex justify-between text-intellight px-4">
+                      <span id="institution_text"> Institution* </span>
+                      <svg
+                        class="w-4 h-4 mt-1"
+                        aria-hidden="true"
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                          clip-rule="evenodd"
+                        ></path>
+                      </svg>
+                    </div>
+                  </button>
+                  <div
+                    id="dropdown-institution"
+                    class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-72"
+                  >
+                    <ul
+                      class="py-2 text-sm text-intelblue"
+                      aria-labelledby="states-button"
+                    >
+                      <li>
+                        <button
+                          type="button"
+                          class="w-full px-4 py-2 text-sm hover:bg-intellight"
+                          onclick="set_institution('abc', 'ABC Institute')"
+                        >
+                          <div class="items-center">ABC Institute</div>
+                        </button>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+                <input
+                  class="col-span-2 border-2 border-intellightF rounded-lg focus:ring-1 focus:ring-intellightF placeholder:text-intellightF"
+                  type="email"
+                  name="email"
+                  id="email"
+                  placeholder="Email Address*"
+                />
+
+                <div class="col-span-2 flex my-3">
+                  <div class="flex items-center h-5">
+                    <input
+                      id="helper-checkbox"
+                      aria-describedby="helper-checkbox-text"
+                      type="checkbox"
+                      value=""
+                      class="w-4 h-4 border-2 border-intellight rounde-md focus:ring-1 focus:ring-intellight placeholder:text-intellight"
+                    />
+                  </div>
+                  <div class="ml-4 text-sm flex items-center">
+                    <p
+                      id="helper-checkbox-text"
+                      class="text-xs font-intelregular"
+                    >
+                      I accept the
+                      <a
+                        href="#"
+                        class="font-intelmedium text-intelblue font-md"
+                        >Terms & Conditions</a
+                      >
+                      and
+                      <a
+                        href="#"
+                        class="font-intelmedium text-intelblue font-md"
+                        >Privacy Policies</a
+                      >
+                    </p>
+                  </div>
+                </div>
+
+                <div class="col-span-2">
+                  <script
+                    src="https://www.google.com/recaptcha/api.js"
+                    async
+                    defer
+                  ></script>
+                  <div>
+                    <p class="text-gray-700 font-intellight text-sm pb-4">
+                      Please check the box below to proceed.
+                    </p>
+                    <div class="g-recaptcha" data-sitekey="your_site_key"></div>
+                  </div>
+                </div>
+
+                <div class="col-span-2">
+                  <button
+                    type="submit"
+                    class="block py-2 pl-3 pr-4 bg-intelblueF text-white w-36 text-center border rounded-full border-intelblue hover:underline"
+                  >
+                    <div class="flex justify-center text-white px-4">
+                      <span> Submit </span>
+                    </div>
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div>
+            <img src="/images/group.png" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.js"></script>
+  </body>
+</html>
