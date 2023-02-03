@@ -10,9 +10,11 @@ module.exports = {
       colors: {
         intelblue: "rgba(0, 8, 100, 1)",
         intellight: "rgba(164, 170, 220, 1)",
+        intelblue2: "rgba(228, 231, 255, 1)",
         // important
         intelblueF: "rgba(0, 8, 100, 1) !important",
         intellightF: "rgba(164, 170, 220, 1) !important",
+        intelblue2F: "rgba(228, 231, 255, 1) !important",
       },
       fontFamily: {
         intelregular: ["INTEL_REGULAR"],
